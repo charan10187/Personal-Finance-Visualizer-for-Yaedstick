@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Toggle Light/Dark Mode -->
+    <div class="toggle-container">
+        <label for="mode-toggle" class="mode-label">🌙/🌞</label>
+        <input type="checkbox" id="mode-toggle">
+    </div>
+
+    <div class="container">
+        <h1>Personal Finance Visualizer</h1>
+
+        <!-- Transaction Form -->
+        <form id="transaction-form">
+            <input type="date" id="transaction-date" required>
+            <input type="text" id="transaction-description" placeholder="Description" required>
+            <input type="number" id="transaction-amount" placeholder="Amount" required>
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <!-- Transactions List -->
+        <div id="transaction-list">
+            <h2>Transactions</h2>
+            <ul id="transactions">
+                <!-- Transactions will be rendered here -->
+            </ul>
+        </div>
+
+        <!-- Financial Summary -->
+        <div id="summary">
+            <h2>Financial Summary</h2>
+            <div id="monthly-expenses"></div>
+            <canvas id="monthly-expenses-chart" width="400" height="200"></canvas>
+        
+            <div id="category-expenses"></div>
+            <canvas id="category-expenses-chart" width="400" height="200"></canvas>
+        </div>
+        
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
